@@ -1,0 +1,45 @@
+<link href="style.css" type="text/css" rel="stylesheet">
+<section class="container">
+   <div class="title">
+      <h1 id="title">Web Dev poll</h1>
+      <p id="description">We're collecting data from web developers all around the world :)</p>
+   </div>
+<form id="survey-form">
+  <label for="name" id="name-label" class="form-line">Name</label>
+  <input type="text" id="name" name="name" placeholder="Your name" required>
+
+  <label for="email" id="email-label" class="form-line">Email</label>
+  <input type="email" id="email" name="email" placeholder="xxxxxxx@xxxx.com" required>
+
+  <label for="age" id="number-label" class="form-line">Age</label>
+  <input type="text" id="number" name="age" min="14" max="60" placeholder="Between 14 and 60 years">
+  
+  <label  for="dropdown" id="dropdown-label" class="form-line"> Work area</label>
+  <select name="dropdown" id="dropdown">
+    <option value="web">Web Development</option>
+    <option value="android">Android</option>
+    <option value="ios">iOS</option>
+  </select>
+   
+  <label for="radio-buttons" class="form-line">Why do you code?</label>
+   <ul class="radiobox">
+      <li> <input type="radio" name="radio-buttons" value="hobby"><label>Hobby</label> </li>
+      <li> <input type="radio" name="radio-buttons" value="professional"><label>Professional</label> </li>      
+   </ul>
+
+   
+  <label for="lang" class="form-line">Known languages</label>
+   <ul class="radiobox">
+    <li><input type="checkbox" name="lang" value="java"><label>Java</label></li>
+    <li><input type="checkbox" name="lang" value="javascript"><label>Javascript</label></li>
+    <li><input type="checkbox" name="lang" value="Ruby"><label>Ruby</label></li>
+    <li><input type="checkbox" name="lang" value="Python"><label>Python</label></li>
+   </ul>
+ 
+  
+  <label for="comments" class="form-line">Leave a comment for us!</label>
+   <textarea name="comments"></textarea>
+  
+  <input type="submit" id="submit">
+</form>
+</section>

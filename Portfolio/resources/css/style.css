@@ -1,0 +1,200 @@
+/*Orange: #e67e22
+Orange Dark: #cf6d17*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #555;
+    font-size: 20px;
+}
+section{
+    padding-top: 60px;
+}
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.new-project{
+    padding: 5%;
+    background-color: #f8f8f8;
+    border: 200px;
+    max-width: 70%;
+    margin-left: 15%;
+    border: 2px solid #e67e22;
+    border-radius: 10px;
+}
+.img-crop{
+    padding-top:75%; /* change the image aspect ratio*/
+    height:0;
+    position:relative;
+    margin-bottom: 10px;
+}
+.new-project img{
+    width: 100%;
+    height: 100%;
+    position:absolute;left:0;top:0;right:0;bottom:0; /*make the image fit on the whole container*/
+    border-radius: 5px;
+
+}
+
+/*----------------*/
+/*-----BUTTONS----*/
+/*----------------*/
+.project-name{
+    display: block;
+    text-decoration: none;
+    color: #e67e22;
+    border: 2px solid #e67e22;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+}
+/*----------------*/
+/*-----NAVBAR-----*/
+/*----------------*/
+.navbar-list{
+    list-style: none;
+    position: fixed;
+    width: 100%;
+    text-align: right;
+    background-color: #f8f8f8;
+    z-index: 1;
+}
+.navbar-list li{
+    margin: 15px;
+    display: inline-block;
+}
+.navbar-list li:last-child{
+    display: inline-block;
+    margin-right: 80px;
+}
+.navbar-button:link,
+.navbar-button:visited{
+    text-decoration: none;
+    color: #e67e22;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s, color 0.2s;
+}
+.navbar-button:active,
+.navbar-button:hover{
+    color: #a15512;
+    border-bottom: 2px solid #a15512;
+}
+
+/*----------------*/
+/*-----HEADINGS---*/
+/*----------------*/
+h1,h2{
+    text-align: center;
+}
+h1{
+    margin-top: 140px;
+    font-weight: 300;
+    font-size: 300%;
+    margin-bottom: 20px;
+}
+h2{
+    font-weight: 400;
+    font-size: 200%;
+    margin-bottom: 30px;
+}
+h2:after{
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 100px;
+    margin: 30px auto 0 auto;
+}
+h3{
+    margin-bottom: 10px;
+    font-size: 120%;
+    text-transform: uppercase;
+}
+/*----------------*/
+/*---PARAGRAPHS---*/
+/*----------------*/
+.long-text{
+    width: 70%;
+    margin: 0 15%;
+    padding: 10px;
+    line-height: 145%;
+}
+/*----------------*/
+/*-------ICON-----*/
+/*----------------*/
+.icon-container{
+    width: 80%;
+    margin: 40px 10%;
+    text-align: center;
+
+}
+.icon-container h3{
+    text-align: left;
+}
+.icon-container a{
+    margin-right: 5%; 
+}
+.icon-container a:last-child{
+    margin-right: 0; 
+}
+.icon-big{
+    color: #e67e22;
+    font-size: 500%;
+}
+
+/*----------------*/
+/*-----WELCOME---*/
+/*----------------*/
+#welcome-section{
+    height: 100vh;
+    background-color: #f8f8f8;
+}
+
+@media only screen and (max-width: 500px) {
+    body{
+        font-size:16px;}
+    h1{
+        margin-top: 60px;
+    }
+    h2:after{
+            margin: 10px auto 0 auto;
+    }
+    section{
+        padding-top: 20px;
+    }
+    .navbar-list {
+        text-align: center;
+      }
+    .navbar-list li {
+        margin: 10px;
+      }
+    .navbar-list li:last-child {
+        margin-right: 10px;
+      }  
+
+    .container{
+        display: block;
+    }
+    .new-project{
+        max-width: 90%;
+        margin: 0 5% 20px 5%;
+    }
+    .new-project:last-child{
+    margin-bottom: 0;
+    }
+    .long-text{
+        width: 90%;
+        margin: 0 5%;
+        text-align: justify;
+    }
+    .icon-container{
+        width:90%;
+        margin: 0 5%;
+    }
