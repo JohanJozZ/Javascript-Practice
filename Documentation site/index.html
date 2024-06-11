@@ -6,6 +6,254 @@
     <title>Technical documentation site</title>
   </head>
   <body>
-    test for git CLI pushing
+    <nav id="navbar">
+      <header class="nav-title">JavaScript Introduction</header>
+      <ul>
+        <li>
+          <a href="#Javascript_first_steps" class="nav-link"
+            >Javascript first steps</a
+          >
+        </li>
+        <li>
+          <a href="#What_is_JavaScript?" class="nav-link"
+            >What is JavaScript?</a
+          >
+        </li>
+        <li>
+          <a href="#What_can_it_really_do?" class="nav-link"
+            >What can it really do?</a
+          >
+        </li>
+        <li>
+          <a href="#JavaScript_running_order" class="nav-link"
+            >JavaScript running order</a
+          >
+        </li>
+        <li>
+          <a href="#Interpreted_versus_compiled_code" class="nav-link"
+            >Interpreted vs compiled code</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="Javascript_first_steps">
+        <header>Javascript first steps</header>
+        <p class="small-text">
+          In our first JavaScript module, we first answer some fundamental
+          questions such as "what is JavaScript?", "what does it look like?",
+          and "what can it do?", before moving on to taking you through your
+          first practical experience of writing JavaScript. After that, we
+          discuss some key building blocks in detail, such as variables,
+          strings, numbers and arrays.
+        </p>
+      </section>
+      <section class="main-section" id="What_is_JavaScript?">
+        <header>What is JavaScript?</header>
+        <p class="small-text">
+          JavaScript is a scripting or programming language that allows you to
+          implement complex features on web pages — every time a web page does
+          more than just sit there and display static information for you to
+          look at — displaying timely content updates, interactive maps,
+          animated 2D/3D graphics, scrolling video jukeboxes, etc. — you can bet
+          that JavaScript is probably involved. It is the third layer of the
+          layer cake of standard web technologies, two of which (HTML and CSS)
+          we have covered in much more detail in other parts of the Learning
+          Area.
+        </p>
+        <ul>
+          <li>
+            HTML is the markup language that we use to structure and give
+            meaning to our web content, for example defining paragraphs,
+            headings, and data tables, or embedding images and videos in the
+            page.
+          </li>
+          <li>
+            CSS is a language of style rules that we use to apply styling to our
+            HTML content, for example setting background colors and fonts, and
+            laying out our content in multiple columns.
+          </li>
+          <li>
+            JavaScript is a scripting language that enables you to create
+            dynamically updating content, control multimedia, animate images,
+            and pretty much everything else. (Okay, not everything, but it is
+            amazing what you can achieve with a few lines of JavaScript code.)
+          </li>
+        </ul>
+        <p class="small-text">
+          The three layers build on top of one another nicely. Let's take a
+          button as an example. We can mark it up using HTML to give it
+          structure and purpose:
+        </p>
+        <figure class="code-snippet">
+          <p class="code-title">HTML</p>
+          <pre>
+            <code>
+              &lt;button type="button"&gt; Player 1: Chris &lt;/button&gt;
+            </code>
+          </pre>
+        </figure>
+
+        <img
+          class="small-img"
+          src="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript/just-html.png"
+          alt="html visual representation"
+        />
+        <p class="small-text">
+          Then we can add some CSS into the mix to get it looking nice:
+        </p>
+        <figure class="code-snippet">
+          <p class="code-title">CSS</p>
+          <pre>
+              <code>
+                button {
+                  font-family: "helvetica neue", helvetica, sans-serif;
+                  letter-spacing: 1px;
+                  text-transform: uppercase;
+                  border: 2px solid rgb(200 200 0 / 60%);
+                  background-color: rgb(0 217 217 / 60%);
+                  color: rgb(100 0 0 / 100%);
+                  box-shadow: 1px 1px 2px rgb(0 0 200 / 40%);
+                  border-radius: 10px;
+                  padding: 3px 10px;
+                  cursor: pointer;
+                }
+              </code>
+            </pre>
+        </figure>
+
+        <p class="small-text">
+          And finally, we can add some JavaScript to implement dynamic behavior:
+        </p>
+        <figure class="code-snippet">
+          <p class="code-title">Javascript</p>
+          <pre>
+            <code>
+              const button = document.querySelector("button");
+              button.addEventListener("click", updateName); function updateName() {
+              const name = prompt("Enter a new name"); button.textContent = `Player
+              1: ${name}`; }
+            </code>
+          </pre>
+        </figure>
+
+        <p class="small-text">Here's a demo of the code in action.</p>
+        <button type="button">Player 1: Johan</button>
+      </section>
+
+      <section class="main-section" id="What_can_it_really_do?">
+        <header>What can it really do?</header>
+
+        <p class="small-text">
+          The core client-side JavaScript language consists of some common
+          programming features that allow you to do things like:
+        </p>
+        <ul>
+          <li>
+            Store useful values inside variables. In the above example for
+            instance, we ask for a new name to be entered then store that name
+            in a variable called <code>name</code>.
+          </li>
+          <li>
+            Operations on pieces of text (known as "strings" in programming). In
+            the above example we take the string "Player 1: " and join it to the
+            <code>name</code> variable to create the complete text label, e.g.
+            "Player 1: Chris".
+          </li>
+          <li>
+            Running code in response to certain events occurring on a web page.
+            We used a
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event"
+              >click</a
+            >
+            event in our example above to detect when the label is clicked and
+            then run the code that updates the text label.
+          </li>
+        </ul>
+        <p class="small-text">
+          What is even more exciting however is the functionality built on top
+          of the client-side JavaScript language. So-called Application
+          Programming Interfaces (APIs) provide you with extra superpowers to
+          use in your JavaScript code.
+        </p>
+      </section>
+
+      <section class="main-section" id="JavaScript_running_order">
+        <header>JavaScript running order</header>
+        <p class="small-text">
+          When the browser encounters a block of JavaScript, it generally runs
+          it in order, from top to bottom. This means that you need to be
+          careful what order you put things in. For example, let's return to the
+          block of JavaScript we saw in our first example:
+        </p>
+        <p class="code-title">Javascript</p>
+        <pre>
+          <code>
+            const button = document.querySelector("button");
+            button.addEventListener("click", updateName); function updateName() {
+            const name = prompt("Enter a new name"); button.textContent = `Player
+            1: ${name}`; }
+          </code>
+        </pre>
+        <p class="small-text">
+          Here we are selecting a button (line 1), then attaching an event
+          listener to it (line 3) so that when the button is clicked, the
+          <code>updateName()</code> code block (lines 5-8) is run. The
+          <code>updateName()</code> code block (these types of reusable code
+          blocks are called "functions") asks the user for a new name, and then
+          inserts that name into the button text to update the display.
+        </p>
+        <p class="small-text">
+          If you swapped the order of the first two lines of code, it would no
+          longer work — instead, you'd get an error returned in the browser
+          developer console —
+          <code
+            >Uncaught ReferenceError: Cannot access 'button' before
+            initialization.</code
+          >
+          This means that the button object has not been initialized yet, so we
+          can't add an event listener to it.
+        </p>
+      </section>
+      <section class="main-section" id="Interpreted_versus_compiled_code">
+        <header>Interpreted versus compiled code</header>
+        <p class="small-text">
+          You might hear the terms interpreted and compiled in the context of
+          programming. In interpreted languages, the code is run from top to
+          bottom and the result of running the code is immediately returned. You
+          don't have to transform the code into a different form before the
+          browser runs it. The code is received in its programmer-friendly text
+          form and processed directly from that.
+        </p>
+        <p class="small-text">
+          Compiled languages on the other hand are transformed (compiled) into
+          another form before they are run by the computer. For example, C/C++
+          are compiled into machine code that is then run by the computer. The
+          program is executed from a binary format, which was generated from the
+          original program source code.
+        </p>
+        <p class="small-text">
+          JavaScript is a lightweight interpreted programming language. The web
+          browser receives the JavaScript code in its original text form and
+          runs the script from that. From a technical standpoint, most modern
+          JavaScript interpreters actually use a technique called just-in-time
+          compiling to improve performance; the JavaScript source code gets
+          compiled into a faster, binary format while the script is being used,
+          so that it can be run as quickly as possible. However, JavaScript is
+          still considered an interpreted language, since the compilation is
+          handled at run time, rather than ahead of time.
+        </p>
+      </section>
+    </main>
+    <script>
+      const button = document.querySelector('button');
+      button.addEventListener('click', updateName);
+      function updateName() {
+        const name = prompt('Enter a new name');
+        button.textContent = `Player
+      1: ${name}`;
+      }
+    </script>
   </body>
 </html>
