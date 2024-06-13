@@ -1,5 +1,48 @@
+:root {
+  --orange-main: #fb8500;
+  --orange-sub: #ffb703;
+  --blue-dark: #023047;
+  --blue-light: #219ebc;
+}
+html,
+body {
+  font-family: 'roboto', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.ham-menu {
+  display: none;
+  background-color: #ddd;
+  padding: 1rem;
+}
+.menu-icon {
+  height: 50px;
+  width: 50px;
+  margin-right: auto;
+  position: relative;
+}
+
+.menu-icon span {
+  height: 5px;
+  width: 100%;
+  background-color: var(--blue-dark);
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3 ease;
+}
+
+.menu-icon span:first-child {
+  top: 25%;
+}
+.menu-icon span:last-child {
+  top: 75%;
+}
+
 #navbar {
-  background-color: #ccc;
+  background-color: #ddd;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -7,12 +50,15 @@
   top: 0px;
   height: 100vh;
   width: 15rem;
+  transition: 0.3 ease;
 }
 .nav-title {
   font-size: 2.5rem;
   transform: rotate(-90deg);
   margin: auto;
   text-align: center;
+  color: var(--blue-dark);
+  font-weight: 300;
 }
 
 #navbar ul {
@@ -33,19 +79,27 @@
   padding: 0.3rem 0.5rem;
   text-align: center;
   cursor: pointer;
-  color: #000;
+  color: var(--blue-dark);
 }
 
 #main-doc {
-  position: absolute;
+  position: relative;
   left: 15rem;
   top: 0;
-  padding: 2rem;
+  padding: 2rem 8rem;
 }
 
+.code-snippet {
+  width: fit-content;
+  margin: auto;
+}
 .code-title {
   font-family: monospace;
-  color: 495e57;
+  color: var(--orange-main);
+}
+header {
+  color: var(--orange-main);
+  font-size: 1.5rem;
 }
 
 button {
@@ -66,4 +120,30 @@ button {
 .small-img {
   display: block;
   margin: auto;
+}
+
+@media only screen and (max-width: 1100px) {
+  #navbar {
+    width: 13rem;
+  }
+  #main-doc {
+    left: 13rem;
+    padding: 1rem;
+  }
+}
+
+@media only screen and (max-width: 868px) {
+  #navbar {
+    width: 15rem;
+    left: -15rem;
+  }
+  #navbar .active {
+    left: 0;
+  }
+  .ham-menu {
+    display: flex;
+  }
+  #main-doc {
+    left: 0;
+  }
 }

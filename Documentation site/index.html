@@ -3,9 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <title>Technical documentation site</title>
   </head>
   <body>
+    <div class="ham-menu">
+      <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
     <nav id="navbar">
       <header class="nav-title">JavaScript Introduction</header>
       <ul>
@@ -30,7 +44,7 @@
           >
         </li>
         <li>
-          <a href="#Interpreted_versus_compiled_code" class="nav-link"
+          <a href="#Interpreted_vs_compiled_code" class="nav-link"
             >Interpreted vs compiled code</a
           >
         </li>
@@ -187,15 +201,18 @@
           careful what order you put things in. For example, let's return to the
           block of JavaScript we saw in our first example:
         </p>
-        <p class="code-title">Javascript</p>
-        <pre>
-          <code>
-            const button = document.querySelector("button");
-            button.addEventListener("click", updateName); function updateName() {
-            const name = prompt("Enter a new name"); button.textContent = `Player
-            1: ${name}`; }
-          </code>
-        </pre>
+        <figure class="code-snippet">
+          <p class="code-title">Javascript</p>
+          <pre>
+            <code>
+              const button = document.querySelector("button");
+              button.addEventListener("click", updateName); function updateName() {
+              const name = prompt("Enter a new name"); button.textContent = `Player
+              1: ${name}`; }
+            </code>
+          </pre>
+        </figure>
+
         <p class="small-text">
           Here we are selecting a button (line 1), then attaching an event
           listener to it (line 3) so that when the button is clicked, the
@@ -216,8 +233,8 @@
           can't add an event listener to it.
         </p>
       </section>
-      <section class="main-section" id="Interpreted_versus_compiled_code">
-        <header>Interpreted versus compiled code</header>
+      <section class="main-section" id="Interpreted_vs_compiled_code">
+        <header>Interpreted vs compiled code</header>
         <p class="small-text">
           You might hear the terms interpreted and compiled in the context of
           programming. In interpreted languages, the code is run from top to
@@ -248,6 +265,7 @@
     </main>
     <script>
       const button = document.querySelector('button');
+
       button.addEventListener('click', updateName);
       function updateName() {
         const name = prompt('Enter a new name');
