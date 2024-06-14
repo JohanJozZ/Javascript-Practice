@@ -2,9 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
@@ -13,14 +18,11 @@
   </head>
   <body>
     <div class="ham-menu">
-      <div class="menu-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
     </div>
 
     <nav id="navbar">
+      <button id="cerrar" class="cerrar-menu"><i class="bi bi-x"></i></button>
       <header class="nav-title">JavaScript Introduction</header>
       <ul>
         <li>
@@ -152,7 +154,7 @@
         </figure>
 
         <p class="small-text">Here's a demo of the code in action.</p>
-        <button type="button">Player 1: Johan</button>
+        <button class="demo-button" type="button">Player 1: Johan</button>
       </section>
 
       <section class="main-section" id="What_can_it_really_do?">
@@ -264,7 +266,32 @@
       </section>
     </main>
     <script>
-      const button = document.querySelector('button');
+      const button = document.querySelector('.demo-button');
+      const abrir = document.querySelector('#abrir');
+      const cerrar = document.querySelector('#cerrar');
+      const nav = document.querySelector('#navbar');
+      const menuIcon = document.querySelector('.ham-menu');
+      const mainDoc = document.querySelector('#main-doc');
+
+      function openMenu() {
+        nav.classList.add('active');
+        menuIcon.classList.add('hidden');
+        mainDoc.style.top = nav.clientHeight + 'px';
+      }
+      function closeMenu() {
+        nav.classList.remove('active');
+        menuIcon.classList.remove('hidden');
+        mainDoc.style.top = '5%';
+      }
+
+      abrir.addEventListener('click', () => openMenu());
+      cerrar.addEventListener('click', () => closeMenu());
+
+      window.addEventListener('resize', () => {
+        if ((window.innerWidth = 868)) {
+          closeMenu();
+        }
+      });
 
       button.addEventListener('click', updateName);
       function updateName() {

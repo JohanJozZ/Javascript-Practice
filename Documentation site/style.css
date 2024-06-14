@@ -8,39 +8,31 @@ html,
 body {
   font-family: 'roboto', sans-serif;
   scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .ham-menu {
+  display: block;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.cerrar-menu {
+  padding: 0.5rem;
+}
+.abrir-menu,
+.cerrar-menu {
+  background: transparent;
+  border: 0;
   display: none;
-  background-color: #ddd;
-  padding: 1rem;
-}
-.menu-icon {
-  height: 50px;
-  width: 50px;
-  margin-right: auto;
-  position: relative;
+  font-size: 2rem;
 }
 
-.menu-icon span {
-  height: 5px;
-  width: 100%;
-  background-color: var(--blue-dark);
-  border-radius: 25px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: 0.3 ease;
+.hidden {
+  display: none;
 }
-
-.menu-icon span:first-child {
-  top: 25%;
-}
-.menu-icon span:last-child {
-  top: 75%;
-}
-
 #navbar {
   background-color: #ddd;
   display: flex;
@@ -50,9 +42,10 @@ body {
   top: 0px;
   height: 100vh;
   width: 15rem;
-  transition: 0.3 ease;
+  transition: 0.3s ease;
 }
 .nav-title {
+  display: block;
   font-size: 2.5rem;
   transform: rotate(-90deg);
   margin: auto;
@@ -83,10 +76,11 @@ body {
 }
 
 #main-doc {
-  position: relative;
+  position: absolute;
   left: 15rem;
   top: 0;
   padding: 2rem 8rem;
+  transition: 0.3s ease;
 }
 
 .code-snippet {
@@ -102,7 +96,7 @@ header {
   font-size: 1.5rem;
 }
 
-button {
+.demo-button {
   font-family: 'helvetica neue', helvetica, sans-serif;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -133,17 +127,35 @@ button {
 }
 
 @media only screen and (max-width: 868px) {
+  .abrir-menu,
+  .cerrar-menu {
+    display: block;
+    cursor: pointer;
+  }
   #navbar {
-    width: 15rem;
-    left: -15rem;
+    visibility: hidden;
+    opacity: 0;
+    width: 100%;
+    height: fit-content;
+    align-items: end;
+    position: absolute;
+    top: -100%;
   }
-  #navbar .active {
-    left: 0;
+  #navbar.active {
+    visibility: visible;
+    opacity: 1;
+    color: var(--blue-light);
+    top: 0;
   }
-  .ham-menu {
-    display: flex;
+  #navbar ul {
+    width: 100vw;
   }
+  .nav-title {
+    display: none;
+  }
+
   #main-doc {
     left: 0;
+    top: 5%;
   }
 }
